@@ -82,3 +82,6 @@ body {
   background-repeat: no-repeat;
   background-image: url(images/3844432-magnifier-search-zoom_110300.svg);
 }
+.loader {
+  font-size: 100px;
+}
