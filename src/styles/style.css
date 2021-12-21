@@ -8,7 +8,7 @@ body {
   --font: "Roboto", sans-serif;
   --black: #333;
   --white: #fff;
-  --grey: #666;
+  --grey: #ee5a30;
   --grey2: #dcdcdc;
   --green: #9acd32;
 }
@@ -82,6 +82,13 @@ body {
   background-repeat: no-repeat;
   background-image: url(images/3844432-magnifier-search-zoom_110300.svg);
 }
-.loader {
-  font-size: 100px;
+
+/*--------Loader--------*/
+
+.loader-image {
+  position: relative;
+  top: 50px;
+  padding-top: 98px;
+  display: block;
+  margin: 0 auto;
 }

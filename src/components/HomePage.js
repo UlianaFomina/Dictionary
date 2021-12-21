@@ -1,6 +1,6 @@
 import React from 'react';
+import {Route} from 'react-router-dom';
 import Loader from './Loader';
-import logo from '../styles/images/loader.svg';
 
 const base_Path= 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 
@@ -12,6 +12,7 @@ class HomePage extends React.Component{
       word: "",
       result: [],
       load: false,
+      url:'',
     };
     this.onChange = this.onChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,12 +24,20 @@ class HomePage extends React.Component{
         .then(result => this.setHomePage(result))
         .catch(error => error);
         this.setLoad();
+        this.setUrl();
+        console.log(this.state.url);
     }
 
     setHomePage = result =>{
       this.setState({result});
     }
-    
+
+    setUrl(){
+      this.setState((state)=>{
+        return{url: `/${this.state.word}`}
+      })
+    }
+
     setLoad(){
       this.setState((state)=>{
         return{load: !state.load}
@@ -39,7 +48,7 @@ class HomePage extends React.Component{
         var val = e.target.value;
         this.setState({word: val});
     }
-    
+
     handleSubmit(e) {
       e.preventDefault();
       const {word}=this.state;
@@ -58,7 +67,7 @@ class HomePage extends React.Component{
   render() {
     return (
       <>
-        {this.state.load ? <img src={logo}/> : 
+        {this.state.load ? <Loader/> : 
         (<div className="home-page">
           <div className="content">
             <h2 className="home-text">Welcome to the dictionary</h2>

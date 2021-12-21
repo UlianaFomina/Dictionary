@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
-import HomePage from './components/HomePage';
-//import Landing from './components/Landing';
+import Router from './components/Router';
+//import HomePage from './components/HomePage';
 import './styles/style.css';
 
-render(<HomePage />, document.querySelector('#root'));
+render(<Router/>, document.querySelector('#root'));
