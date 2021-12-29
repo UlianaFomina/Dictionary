@@ -1,6 +1,6 @@
 import React from 'react';
-import {Route} from 'react-router-dom';
 import Loader from './Loader';
+import { createBrowserHistory } from 'history';
 
 const base_Path= 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 
@@ -12,30 +12,22 @@ class HomePage extends React.Component{
       word: "",
       result: [],
       load: false,
-      url:'',
     };
     this.onChange = this.onChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-    fetchData = (word) => {
-      fetch(`${base_Path}${word}`)
-        .then(res => res.json())
-        .then(result => this.setHomePage(result))
-        .catch(error => error);
-        this.setLoad();
-        this.setUrl();
-        console.log(this.state.url);
-    }
+  fetchData = (word) => {
+    fetch(`${base_Path}${word}`)
+      .then(res => res.json())
+      .then(result => this.setHomePage(result))
+      .catch(error => error);
+  }
 
     setHomePage = result =>{
       this.setState({result});
-    }
-
-    setUrl(){
-      this.setState((state)=>{
-        return{url: `/${this.state.word}`}
-      })
+      this.props.locationChange();
+      sessionStorage.result = JSON.stringify({result});
     }
 
     setLoad(){
@@ -45,8 +37,8 @@ class HomePage extends React.Component{
     }
 
     onChange(e) {
-        var val = e.target.value;
-        this.setState({word: val});
+      var val = e.target.value;
+      this.setState({word: val});
     }
 
     handleSubmit(e) {
@@ -57,8 +49,7 @@ class HomePage extends React.Component{
         alert("is not a text");
       }
       else{
-        setTimeout(this.fetchData, 3000, word);
-        //this.fetchData(word);
+        this.fetchData(word);
       }
       console.log(this.state.result);
     }

@@ -2,13 +2,13 @@
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  /* overflow: hidden;*/
 }
 :root {
   --font: "Roboto", sans-serif;
   --black: #333;
   --white: #fff;
-  --grey: #ee5a30;
+  --coral: #ee5a30;
   --grey2: #dcdcdc;
   --green: #9acd32;
 }
@@ -91,4 +91,92 @@ body {
   padding-top: 98px;
   display: block;
   margin: 0 auto;
+}
+
+/*----------------ResultPage--------*/
+
+.res-page {
+  background-image: url(images/bg-img.jpg);
+  width: 100%;
+  padding-bottom: 100px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.res-page div {
+  font-family: var(--font);
+  color: var(--grey2);
+  font-size: 25px;
+}
+.btn-wrap {
+  align-items: center;
+  padding: 20px 15px 30px 15px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+}
+.res-btn {
+  border-radius: 10px;
+  border: var(--grey2) solid 2px;
+  color: var(--grey2);
+  padding: 15px;
+  font-family: var(--font);
+  font-size: 20px;
+  transition: 0.7s;
+}
+.res-btn:hover {
+  background-color: var(--black);
+}
+.res-title {
+  text-transform: uppercase;
+  font-size: 28px;
+  margin: 0;
+}
+
+.result-items {
+  padding-top: 50px;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 15px;
+  display: flex;
+}
+.result-main {
+  margin: 0 auto;
+}
+.main-res-item {
+  background-color: var(--black);
+  border-radius: 10px;
+  border: var(--grey2) solid 2px;
+  max-width: 565px;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+}
+.res-text {
+  padding-bottom: 10px;
+  display: table;
+  margin: 0 auto;
+  font-family: var(--font);
+  font-size: 25px;
+}
+.res-desc {
+  display: table;
+  margin: 0 auto;
+}
+.phoneticsList {
+  display: flex;
+  margin-left: 100px;
+  align-items: center;
+}
+.phonetics-text {
+  margin-right: 15px;
+}
+.meanings-border {
+  border: 1px solid var(--grey2);
+  margin: 15px 0;
+}
+.definitions-border {
+  border: 1px solid var(--coral);
+  margin: 7px 0;
 }
