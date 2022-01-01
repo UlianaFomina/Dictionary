@@ -2,6 +2,7 @@ import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import ResultPage from './ResultPage';
 import HomePage from './HomePage';
+import NotFound from './NotFound';
 
 const Router = (props) =>{
 
@@ -14,11 +15,10 @@ const Router = (props) =>{
       <Routes>
         <Route path="/" element={
         <HomePage
-         /* updateWord={updateWord}
-          updateResult={updateResult}*/
           locationChange={locationChange}
         />}/>
         <Route path='/result' element={<ResultPage />}/>
+        <Route path='/notFound' element= {<NotFound/>}/>
       </Routes>
     </BrowserRouter>
   );

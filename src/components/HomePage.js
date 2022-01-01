@@ -26,8 +26,14 @@ class HomePage extends React.Component{
 
     setHomePage = result =>{
       this.setState({result});
-      this.props.locationChange();
+      //this.props.locationChange();
       sessionStorage.result = JSON.stringify({result});
+      if(result.message!==undefined){
+         window.location = "/notFound";
+      }
+      else{
+        this.props.locationChange();
+      }
     }
 
     setLoad(){
