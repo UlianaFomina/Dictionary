@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Result from './Result';
 
-const ResultPage = (props) => {
+function ResultPage(){
   const result = JSON.parse(sessionStorage.result);
   const [num , updateNum] = useState(0);
 

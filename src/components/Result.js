@@ -5,9 +5,9 @@ const result = JSON.parse(sessionStorage.result);
 class Result extends React.Component{
 
   render(){
-    const phoneticsList = [];
-
     //----for phonetics-----
+    const phoneticsList = [];
+    
     for (let i in result.result[this.props.num].phonetics){
 
       if(result.result[this.props.num].phonetics[i].audio === null || result.result[this.props.num].phonetics[i].audio === undefined){
@@ -16,7 +16,7 @@ class Result extends React.Component{
 
       else{
         phoneticsList.push(<div className="phonetics-text">{result.result[this.props.num].phonetics[i].text}</div>);
-        phoneticsList.push(<audio controls src={result.result[this.props.num].phonetics[i].audio}>hi</audio>);
+        phoneticsList.push(<audio controls src={result.result[this.props.num].phonetics[i].audio}></audio>);
       }
 
     }

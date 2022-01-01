@@ -1,6 +1,5 @@
 import React from 'react';
 import Loader from './Loader';
-import { createBrowserHistory } from 'history';
 
 const base_Path= 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 
@@ -26,7 +25,6 @@ class HomePage extends React.Component{
 
     setHomePage = result =>{
       this.setState({result});
-      //this.props.locationChange();
       sessionStorage.result = JSON.stringify({result});
       if(result.message!==undefined){
          window.location = "/notFound";
@@ -51,12 +49,7 @@ class HomePage extends React.Component{
       e.preventDefault();
       const {word}=this.state;
       this.setLoad();
-      if(parseFloat(word)==word){
-        alert("is not a text");
-      }
-      else{
-        this.fetchData(word);
-      }
+      this.fetchData(word);
       console.log(this.state.result);
     }
 
